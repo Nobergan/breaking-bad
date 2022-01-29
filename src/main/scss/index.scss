@@ -1,0 +1,18 @@
+@import "./normalize";
+@import "./variables";
+@import "./mixins";
+@import "./commonStyles";
+// @import "custom";
+@import "./vendor/bootstrap/main";
+// @import "~bootstrap/scss/bootstrap";
+
+@import "./sections/header";
+@import "./sections/first";
+@import "./sections/second";
+@import "./sections/third";
+@import "./sections/fourth";
+@import "./sections/fifth";
+@import "./sections/sixth";
+@import "./sections/seventh";
+@import "./sections/eighth";
+@import "./sections/footer";
