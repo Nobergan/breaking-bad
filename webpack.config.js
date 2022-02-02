@@ -57,9 +57,9 @@ function createConfig(configName = "") {
               ignorePermissionErrors: true,
             }
           )
-          .on("change", () => {
-            server.sockWrite(server.sockets, "content-changed");
-          });
+          // .on("change", () => {
+          //   server.sockWrite(server.sockets, "content-changed");
+          // });
       },
       devMiddleware: {
         publicPath: `/`,
@@ -214,6 +214,10 @@ function createConfig(configName = "") {
               },
             },
           ],
+        },
+        {
+          test: /\.hbs$/,
+          use: "handlebars-loader",
         },
       ],
     },

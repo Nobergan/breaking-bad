@@ -6,13 +6,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ленбиржа</title>
+  <title>Breaking Bad</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 </head>
 
 <body class="page">
-  <%= _.template(require("./templates/header.html"))(data) %>
+  <div class="header-first__box">
+    <%= _.template(require("./templates/header.html"))(data) %>
     <%= _.template(require("./templates/first.html"))(data) %>
+  </div>
       <%= _.template(require("./templates/second.html"))(data) %>
         <%= _.template(require("./templates/third.html"))(data) %>
           <%= _.template(require("./templates/fourth.html"))(data) %>

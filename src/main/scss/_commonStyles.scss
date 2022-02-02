@@ -1,5 +1,5 @@
 html {
-  font-family: "Muller", sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
@@ -100,4 +100,10 @@ button:active {
 
 .invalid {
   border: 3px solid red;
+}
+
+.header-first__box {
+  background-image: url("../img/body-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
