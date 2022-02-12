@@ -33,6 +33,13 @@
   line-height: $lh;
 }
 
+@mixin flex($dp, $ai, $jc, $fw) {
+  display: $dp;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-wrap: $fw;
+}
+
 @mixin transition(
   $property,
   $time: 250ms,

@@ -1,10 +1,7 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import 'swiper/css';
-import 'swiper/scss/autoplay';
-import 'swiper/scss/effect-cube';
 
-const swiper = new Swiper('.swiper', {
+new Swiper('.swiper', {
   speed: 10000,
   loop: true,
 
@@ -15,6 +12,21 @@ const swiper = new Swiper('.swiper', {
   effect: 'cube',
   cubeEffect: {
     slideShadows: true,
+  },
+  
+});
+
+new Swiper('.swiper-episodes', {
+  speed: 5000,
+  loop: true,
+
+  autoplay: {
+    delay: 3000,
+  },
+
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true,
   },
   
 });

@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="<?php echo $page_lang; ?>">
-<!-- <html lang="ru"> -->
+<html lang="en">
+  <!-- <html lang="ru"> -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Breaking Bad</title>
+    <title>Breaking Bad</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link type="image/x-icon" rel="shortcut icon" href="/src/main/img/favicon.ico"/>
 
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="page">
-  <div class="header-first__box">
-    <%= _.template(require("./templates/header.html"))(data) %>
-    <%= _.template(require("./templates/first.html"))(data) %>
-  </div>
-      <%= _.template(require("./templates/second.html"))(data) %>
-        <%= _.template(require("./templates/third.html"))(data) %>
-          <%= _.template(require("./templates/fourth.html"))(data) %>
-            <%= _.template(require("./templates/fifth.html"))(data) %>
-              <%= _.template(require("./templates/sixth.html"))(data) %>
-                <%= _.template(require("./templates/seventh.html"))(data) %>
-                  <%= _.template(require("./templates/eighth.html"))(data) %>
-                    <%= _.template(require("./templates/footer.html"))(data) %>
+  <body class="page">
+    <div class="header-first__box">
+      <%= _.template(require("./templates/header.html"))(data) %> <%=
+      _.template(require("./templates/first.html"))(data) %>
+    </div>
+      <%= _.template(require("./templates/second.html"))(data) %> 
+        <%=_.template(require("./templates/third.html"))(data) %>
+          <%=_.template(require("./templates/fourth.html"))(data) %> 
+            <%=_.template(require("./templates/fifth.html"))(data) %> 
+              <%=_.template(require("./templates/sixth.html"))(data) %> 
+                <%=_.template(require("./templates/seventh.html"))(data) %> 
+                  <%=_.template(require("./templates/eighth.html"))(data) %> 
+                    <%=_.template(require("./templates/footer.html"))(data) %>
 
-                      <script src="./assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
 
-                      <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
-                      <!-- <script>
+    <!-- <script src="https://kinobd.ru/js/player_.js"></script> -->
+
+    <!-- <script>
                         $(".scroll-btn").each(function () {
                           $(this).click((e) => {
                             e.preventDefault();
@@ -45,6 +51,5 @@
                           });
                         });
                       </script> -->
-</body>
-
+  </body>
 </html>

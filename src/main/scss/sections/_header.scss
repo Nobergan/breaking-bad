@@ -1,67 +1,35 @@
 .header {
-    padding: 15px 0 1px;
-
+    padding: 15px 0;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .header .container {
-    display: flex;
-    align-items: center;
+    @include flex(flex, center, unset, unset);
 }
 
 .header__logo {
     margin-right: 30px;
-
     width: 150px;
 }
 
 .header__list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+    @include flex(flex, center, space-between, unset);
     flex-grow: 2;
 }
 
-.header__list-item {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 1.2;
+.header__list-item a {
+    @include font(700, 22px, 1.2);
     text-align: center;
 
-    color: #ffffff;
+    color: $primary-color;
 }
 
-// DROPDOWN FOR SEASONS
-
-.dropdown button {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 1.2;
-    text-align: center;
-
-    color: #ffffff;
+.header__list-item a:hover,
+.header__list-item a:active,
+.header__list-item a:focus {
+    border-bottom: 2px solid $primary-color;
 }
 
-.dropdown .dropdown-menu {
-    padding: 0;
-    background: rgba(0, 0, 0, 0.5);
+.header__list-item.active-item a:hover {
+    border: none;
 }
-
-.dropdown .dropdown-item {
-    padding: 10px;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.2;
-    text-align: center;
-
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.dropdown .dropdown-item:hover,
-.dropdown .dropdown-item:active,
-.dropdown .dropdown-item:focus {
-    background: rgba(0, 0, 0, 1);
-}
-

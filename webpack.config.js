@@ -1,20 +1,18 @@
 const chokidar = require("chokidar");
 const os = require("os");
+const fs = require("fs");
 const process = require("process");
 const path = require("path");
 const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const HtmlWebpackSkipAssetsPlugin =
   require("html-webpack-skip-assets-plugin").HtmlWebpackSkipAssetsPlugin;
-// import { Carousel } from 'bootstrap';
 
 const isDev = process.env.NODE_ENV === "development";
-// let chrome = 'chrome';
 let chrome;
 switch (process.platform) {
   case "linux":
@@ -27,16 +25,30 @@ switch (process.platform) {
     chrome = "chrome";
     break;
 }
+
+// MAKE A COLLECTION OF HTML FILES FROM PAGES
+const collectPagesNames = (directory) => {
+  try {
+    const filenames = fs.readdirSync(path.join(__dirname, directory));
+    return filenames;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // INSERT NEW CONFIGS HERE
 const configs = [createConfig() /*createConfig("news")*/];
 
-configs.forEach((config, index) => (config.devServer.port = 8080 + index));
+configs.forEach((config, index) => {
+  config.devServer.port = 8080 + index;
+});
+
 module.exports = configs;
 
-function createConfig(configName = "") {
-  const name = configName || "main";
+function createConfig(configName = "main") {
+  const name = configName;
   const config = {
-    name: configName || "main",
+    name: configName,
     mode: isDev ? "development" : "production",
     entry: `./src/${name}/index.js`,
 
@@ -50,16 +62,12 @@ function createConfig(configName = "") {
     devtool: isDev ? "eval-cheap-module-source-map" : false,
     devServer: {
       onBeforeSetupMiddleware(server) {
-        chokidar
-          .watch(
-            [`./src/${name}/templates/**/*.html`, `./src/${name}/index.ejs`],
-            {
-              ignorePermissionErrors: true,
-            }
-          )
-          // .on("change", () => {
-          //   server.sockWrite(server.sockets, "content-changed");
-          // });
+        chokidar.watch(
+          [`./src/${name}/templates/**/*.html`, `./src/${name}/index.ejs`],
+          {
+            ignorePermissionErrors: true,
+          }
+        );
       },
       devMiddleware: {
         publicPath: `/`,
@@ -92,20 +100,18 @@ function createConfig(configName = "") {
     },
 
     plugins: [
-      // new CountUp(),
       new MiniCssExtractPlugin({
         filename: "css/styles.[fullhash].css",
       }),
       new HtmlWebpackPlugin({
         disable: isDev,
-        filename: isDev ? `index.html` : "../index.php",
+        filename: `index.html`,
         template: `./src/${name}/index.ejs`,
         minify: false,
         inject: "body",
-        // excludeAssets: isDev ? [] : [/\.js$/],
       }),
-      new HtmlWebpackSkipAssetsPlugin({}),
     ],
+
     module: {
       rules: [
         {
@@ -127,13 +133,6 @@ function createConfig(configName = "") {
                     publicPath: "../",
                   },
                 },
-
-            // {
-            //   loader: "postcss-loader",
-            //   options: {
-            //     sourceMap: isDev,
-            //   },
-            // },
             {
               loader: "css-loader",
               options: {
@@ -141,10 +140,6 @@ function createConfig(configName = "") {
                 importLoaders: 1,
               },
             },
-            // {
-            //   loader: "resolve-url-loader",
-            //   options: {},
-            // },
           ],
         },
         {
@@ -223,18 +218,6 @@ function createConfig(configName = "") {
     },
   };
 
-  // if (!isDev) {
-  //   console.log("name is", name);
-  //   config.plugins.push(
-  //     new PurgecssPlugin({
-  //       paths: glob.sync(`${path.join(__dirname, `src/${name}/templates/**/*`)}`, { nodir: true }),
-  //       whitelistPatterns: [/modal/, /aos/, /irs/],
-  //       safelist: [/reset/],
-  //       // only: [name],
-  //     })
-  //   );
-  // }
-
   if (config.name === "main") {
     config.plugins.push(
       new CopyPlugin({
@@ -254,8 +237,22 @@ function createConfig(configName = "") {
     );
   }
 
+  const pageNames = collectPagesNames(`src/${configName}/pages`);
+  
+  const htmlPlugins = pageNames.map(
+    (filename) =>
+      new HtmlWebpackPlugin({
+        disable: isDev,
+        filename,
+        template: `./src/${configName}/pages/${filename}`,
+        minify: false,
+        inject: "body",
+      })
+  );
+  config.plugins.push(...htmlPlugins);
   return config;
 }
+
 function getMyLocalIP() {
   const nets = Object.values(os.networkInterfaces());
   let ips = [];

@@ -6,6 +6,7 @@
 @import "./vendor/bootstrap/main";
 // @import "~bootstrap/scss/bootstrap";
 
+// MAIN PAGE
 @import "./sections/header";
 @import "./sections/first";
 @import "./sections/second";
@@ -16,3 +17,6 @@
 @import "./sections/seventh";
 @import "./sections/eighth";
 @import "./sections/footer";
+
+// EPISODES
+@import "./pages/episodes/episodes.scss";

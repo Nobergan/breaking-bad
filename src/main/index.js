@@ -1,20 +1,28 @@
 import "./scss/index.scss";
-import "./js/swiper-slider";
-import refs from './js/refs';
-import fetchEpisodes from "./js/fetch";
-import updateMarkup from "./js/update-markup";
 
-refs.seasonOneBtn.addEventListener("click", () => {
-    // event.preventDefault();
-    // console.log(event.currentTarget.elements.query);
-  
-    // const form = event.currentTarget;
-    // const inputValue = form.elements.query.value;
-  
-    // console.log(inputValue);+
-  
-    // refs.contentBox.innerHTML = "";
-    // form.reset();
-  
-    fetchEpisodes().then(updateMarkup);
+import refs from "./js/refs";
+import episodesApiService from "./js/episodes-api-service";
+
+import "./js/swiper-slider";
+import Router from "./js/components/Router.js";
+
+// const it = document.querySelector(".tippy-content");
+// console.log(it)
+//       it.style.width = "400px";
+
+const router = new Router({
+  mode: "history",
+  root: "http://192.168.88.161:8080/",
+});
+
+router
+  .add(/episodes.html/, () => {
+    episodesApiService.loadEpisodes();
+  })
+  // .add(/products\/(.*)\/specification\/(.*)/, (id, specification) => {
+  //   alert(`products: ${id} specification: ${specification}`);
+  // })
+  .add("", () => {
+    // general controller
+    console.log("welcome in catch all controller");
   });

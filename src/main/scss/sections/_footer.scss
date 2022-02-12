@@ -1,0 +1,13 @@
+.footer {
+    padding: 20px 0;
+    background: $primary-bg_color;
+    text-align: center;
+}
+
+.footer__text {
+    margin: 0;
+
+    @include font(500, 15px, 1.2);
+    
+    color: $primary-color;
+}

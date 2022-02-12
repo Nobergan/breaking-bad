@@ -1,0 +1,142 @@
+// HEADER
+.episodes__header {
+    background: linear-gradient(179.98deg, $primary-bg_color 3.59%, $secondary-bg_color 99.99%);
+}
+
+// LIST OF EPISODES
+.episodes__main {
+    padding: 60px 0;
+    background: $primary-bg_color;
+}
+
+.episodes__main-title {
+    margin: 0 0 20px;
+
+    @include font(700, 35px, 1.2);
+
+    color: $primary-color;
+}
+
+.episodes__descr {
+    margin: 0 0 20px;
+
+    @include font(400, 17px, 1.2);
+
+    color: $primary-color;
+}
+
+.episodes__seasons-flex {
+    @include flex(flex, unset, center, wrap);
+}
+
+.episodes__season-box {
+    position: relative;
+    @include flex(flex, flex-start, unset, unset);
+    padding: 30px 0 20px;
+    margin: 0 50px;
+
+    border-bottom: 2px solid $accent_color;
+}
+
+.episodes__season-img {
+    margin: 0 40px 10px 0;
+}
+
+.episodes__season-descr {
+    margin: 0 0 2px;
+
+    @include font(400, 11px, 1.2);
+
+    color: $primary-color;
+}
+
+.episodes__season-descr--bold {
+    @include font(bold, 12px, 1.2);
+}
+
+.episodes-list {
+    padding: 0;
+    margin: 0;
+}
+
+.episodes-list__title {
+    margin: 0 0 15px -15px;
+
+    @include font(700, 25px, 1.2);
+    
+    color: $primary-color;
+}
+
+.episodes-list__item,
+.episodes-list__item button {
+    margin: 0 0 5px;
+
+    @include font(400, 15px, 1.2);
+    
+    color: $primary-color;
+    cursor: pointer;
+}
+
+.episodes-list__item button:hover,
+.episodes-list__item button:active,
+.episodes-list__item button:focus {
+    font-weight: 900;
+    color: $accent_color;
+}
+
+.episodes-list__item:hover button {
+    font-weight: 900;
+    color: $accent_color;
+}
+
+// SPINNER
+.episodes__season-box .spinner {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    color: $primary-color;
+}
+
+// SLIDER
+.episodes__slider {
+    padding: 30px 0 60px;
+    background-image: url("../../../img/pages/episodes/episodes-slider-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.swiper-episodes {
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 250px 44px $primary-bg_color;
+}
+
+// TOOLTIP
+.tippy-box {
+    max-width: 800px !important;
+    min-width: 800px;
+}
+
+.toolbox__title {
+    margin: 0 0 20px;
+
+    @include font(700, 25px, 1.2);
+    
+    cursor: pointer;
+}
+
+.toolbox__img-flex {
+    @include flex(flex, unset, unset, wrap);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.toolbox__img {
+    margin: 2px;
+}
+
+.toolbox__title-about {
+    font-size: 20px;
+    cursor: pointer;
+}
