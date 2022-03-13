@@ -30,3 +30,19 @@ new Swiper('.swiper-episodes', {
   },
   
 });
+
+new Swiper('.swiper-characters', {
+  speed: 5000,
+  loop: true,
+
+  autoplay: {
+    delay: 3000,
+  },
+
+ effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 30,
+    slideShadows: false,
+  },
+  
+});

@@ -74,6 +74,7 @@
     @include font(400, 15px, 1.2);
     
     color: $primary-color;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -100,7 +101,7 @@
 // SLIDER
 .episodes__slider {
     padding: 30px 0 60px;
-    background-image: url("../../../img/pages/episodes/episodes-slider-bg.jpg");
+    background-image: url("../../img/pages/episodes/episodes-slider-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

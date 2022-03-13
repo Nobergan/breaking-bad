@@ -1,0 +1,20 @@
+{{#each this}}
+<div class="card">
+    <div class="card__hover">
+        <img class="card__img"
+            src="{{img}}"
+            alt="{{portrayed}}">
+        <p class="card__nickname">{{nickname}}</p>
+        <div class="card__overlay">
+            <h2 class="card__name">{{name}}</h2>
+            <ul class="card__list">
+                <li class="cards-list__item"><span>Birthday:</span> {{birthday}}</li>
+                <li class="cards-list__item"><span>Occupation:</span> {{occupation}}</li>
+                <li class="cards-list__item"><span>Status:</span> {{status}}</li>
+                <li class="cards-list__item"><span>Appearance:</span> {{appearance}}</li>
+                <li class="cards-list__item"><span>Portrayed:</span>{{portrayed}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{/each}}

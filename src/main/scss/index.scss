@@ -18,5 +18,6 @@
 @import "./sections/eighth";
 @import "./sections/footer";
 
-// EPISODES
-@import "./pages/episodes/episodes.scss";
+// PAGES
+@import "../scss/pages/episodes";
+@import "../scss/pages/characters";

@@ -1,12 +1,17 @@
 .second {
-background-color: #000000;
+  padding: 60px;
+  background-color: $primary-bg_color;
 }
 
 .second .container {
-    color: #ffffff;
+  color: $primary-color;
 }
 
-.js-box--part {
-    list-style: none;
-    padding: 0;
+.second__title {
+  margin: 0 0 20px;
+
+  @include font(900, 40px, 1.2);
+  text-align: center;
+
+  color: $primary-color;
 }
